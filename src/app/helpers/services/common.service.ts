@@ -54,11 +54,12 @@ export abstract class CommonService<E extends Generic> {
 
     let url = BASE_URL + '/' + this.baseEndpoint;
 
-    if ( e._id ){
+
+
+    if ( e._id != 'nuevo'){
       url += '/' + e._id;
       return this.http.put<E>( url, e, { headers: this.httpHeaders} );
     } else {
-
       return this.http.post<E>( url, e, { headers: this.httpHeaders} );
     }
 
